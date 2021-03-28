@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
             // Header
             new UserAccountsDrawerHeader
               (accountName: Text("Navin Kodam"),
-                accountEmail: Text("navinkodam11@gmail.com"),
+                accountEmail: Text("kodamnavin11@gmail.com"),
             currentAccountPicture: GestureDetector(
               child: new CircleAvatar(
                 backgroundColor: Colors.grey,
