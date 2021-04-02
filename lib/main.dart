@@ -1,13 +1,14 @@
+import 'package:agro_app/components/horizontal_listview.dart';
+import 'package:agro_app/components/products.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 
-void main(){
-  runApp(
-      MaterialApp(
-        debugShowCheckedModeBanner: false, // for removing the default banner from app
-        home: HomePage(),
-      )
-  );
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner:
+        false, // for removing the default banner from app
+    home: HomePage(),
+  ));
 }
 
 class HomePage extends StatefulWidget {
@@ -40,101 +41,150 @@ class _HomePageState extends State<HomePage> {
     );
     return Scaffold(
       appBar: new AppBar(
-        elevation: 0.0,
+        elevation: 0.1,
         backgroundColor: Colors.red,
         title: Text("Agro App"),
         actions: <Widget>[
-          new IconButton(icon: Icon(Icons.search,color: Colors.white,), onPressed: (){}),
-          new IconButton(icon: Icon(Icons.shopping_cart,color: Colors.white,), onPressed: (){})
+          new IconButton(
+              icon: Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
+              onPressed: () {}),
+          new IconButton(
+              icon: Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
+              ),
+              onPressed: () {})
         ],
       ),
       drawer: new Drawer(
         child: new ListView(
           children: <Widget>[
             // Header
-            new UserAccountsDrawerHeader
-              (accountName: Text("Vasant Basutkar"),
+            new UserAccountsDrawerHeader(
+              accountName: Text("Vasant Basutkar"),
               accountEmail: Text("vasantbasutkar143@gmail.com"),
               currentAccountPicture: GestureDetector(
                 child: new CircleAvatar(
                   backgroundColor: Colors.grey,
-                  child: Icon(Icons.person,color: Colors.white,),
+                  child: Icon(
+                    Icons.person,
+                    color: Colors.white,
+                  ),
                 ),
-
               ),
-              decoration: new BoxDecoration(
-                  color: Colors.red
-              ),
+              decoration: new BoxDecoration(color: Colors.red),
             ),
 
             // Body
 
             InkWell(
-              onTap: (){},
+              onTap: () {},
               child: ListTile(
                 title: Text('Home Page'),
-                leading: Icon(Icons.home,color: Colors.deepPurple,),
+                leading: Icon(
+                  Icons.home,
+                  color: Colors.deepPurple,
+                ),
               ),
             ),
 
             InkWell(
-              onTap: (){},
+              onTap: () {},
               child: ListTile(
                 title: Text('My Account'),
-                leading: Icon(Icons.person,color: Colors.deepPurple,),
+                leading: Icon(
+                  Icons.person,
+                  color: Colors.deepPurple,
+                ),
               ),
             ),
 
             InkWell(
-              onTap: (){},
+              onTap: () {},
               child: ListTile(
                 title: Text('My Orders'),
-                leading: Icon(Icons.shopping_basket,color: Colors.deepPurple,),
+                leading: Icon(
+                  Icons.shopping_basket,
+                  color: Colors.deepPurple,
+                ),
               ),
             ),
 
             InkWell(
-              onTap: (){},
+              onTap: () {},
               child: ListTile(
                 title: Text('Categoris'),
-                leading: Icon(Icons.dashboard,color: Colors.deepPurple,),
+                leading: Icon(
+                  Icons.dashboard,
+                  color: Colors.deepPurple,
+                ),
               ),
             ),
 
             InkWell(
-              onTap: (){},
+              onTap: () {},
               child: ListTile(
                 title: Text('Favourites'),
-                leading: Icon(Icons.favorite,color: Colors.red,),
+                leading: Icon(
+                  Icons.favorite,
+                  color: Colors.red,
+                ),
               ),
             ),
 
             Divider(), //Line in Drawer
 
             InkWell(
-              onTap: (){},
+              onTap: () {},
               child: ListTile(
                 title: Text('Settings'),
-                leading: Icon(Icons.settings,color: Colors.blue,),
+                leading: Icon(
+                  Icons.settings,
+                  color: Colors.blue,
+                ),
               ),
             ),
 
             InkWell(
-              onTap: (){},
+              onTap: () {},
               child: ListTile(
                 title: Text('About'),
-                leading: Icon(Icons.help,color: Colors.green,),
+                leading: Icon(
+                  Icons.help,
+                  color: Colors.green,
+                ),
               ),
             ),
-
-
           ],
         ),
       ),
-
       body: new ListView(
         children: <Widget>[
-          image_carousel
+          // image carosoul begin here
+          image_carousel,
+          // padding widget
+          new Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new Text('Categories'),
+          ),
+
+          //Horizontal list view
+          HorizontalList(),
+
+          // padding widget
+          new Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: new Text('Products'),
+          ),
+
+          //grid view
+          Container(
+            height:320.0,
+            child: Products(),
+          )
         ],
       ),
     );
