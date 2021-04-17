@@ -25,6 +25,11 @@ dependencies:
     sdk: flutter
 
   carousel_pro: ^1.0.0 #no indention
+  firebase_auth: ^0.6.6 #Firebase Authentication
+  cloud_firestore: ^0.8.2 #cloud_firestore
+  google_sign_in: ^5.0.1  #google_sign_in
+  shared_preferences: ^2.0.5 #shared_preferences
+  fluttertoast: ^8.0.3 #fluttertoast
 
 
 
@@ -53,6 +58,46 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
+      # Agro Products Section
+      #Banners
+    - images/Agro_Images/Banners/Agri-Blog-Cover.png
+    - images/Agro_Images/Banners/Beans Banner.png
+    - images/Agro_Images/Banners/Indian Farmer.jpg
+    - images/Agro_Images/Banners/product-banner.jpg
+    - images/Agro_Images/Banners/sprinkler.jpg
+    - images/Agro_Images/Banners/fertilizer-dealers.webp
+
+      #Categories Icons
+
+    - images/Agro_Images/Categories/agriculture.png
+    - images/Agro_Images/Categories/agronomy.png
+    - images/Agro_Images/Categories/farmer.png
+    - images/Agro_Images/Categories/greenhouse.png
+    - images/Agro_Images/Categories/harvest.png
+    - images/Agro_Images/Categories/location.png
+    - images/Agro_Images/Categories/nitrates-free.png
+    - images/Agro_Images/Categories/seed.png
+    - images/Agro_Images/Categories/seedling.png
+
+    #Agro Products
+    - images/Agro_Images/acidifying_agents/SEARLESS , sulphur powder,500mg.jpg
+    - images/Agro_Images/acidifying_agents/WELLNWSS , ultra acid, 100 capsules.jpg
+    - images/Agro_Images/acidifying_agents/BASF , ammonium chloride ,1kg powder.jpg
+    - images/Agro_Images/acidifying_agents/AQUA, otirinse , 237ml liquid.jpg
+    - images/Agro_Images/Fertilizers/ABTEC , vermi compost , 5kg powder.jpg
+    - images/Agro_Images/pesticides/EXPERT, pest fix,250ml liquid.jpg
+    - images/Agro_Images/pesticides/ZAENA, biofungi, 100.jpg
+    - images/Agro_Images/Soil_conditioners/ORGANIC, green sand,1kg powder.jpg
+    - images/Agro_Images/Soil_conditioners/SOOTHLAND, jump start,1L LIQUID.jpg
+    - images/Agro_Images/Soil_conditioners/ENCAP, gypsum,2.5lbs powder.jpg
+    - images/Agro_Images/Soil_conditioners/HOFFMAN, peat moss,500mg powder.jpg
+    - images/Agro_Images/Soil_conditioners/FERRY MORSE , sunny meadows mox ,700mg powder.jpg
+
+
+
+
+     #Other Products
+
     - images/c1.jpg
     - images/IMG_1266.JPG
     - images/m1.jpeg

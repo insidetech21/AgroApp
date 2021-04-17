@@ -9,38 +9,38 @@ class Products extends StatefulWidget {
 class _ProductsState extends State<Products> {
   var product_list = [
     {
-      'name': "Blazer",
-      'picture': "images/products/blazer1.jpeg",
+      'name': "Acidity Agents",
+      'picture': "images/Agro_Images/acidifying_agents/SEARLESS , sulphur powder,500mg.jpg",
       'old_price': 120,
       'price': 85
     },
     {
-      'name': "Red Dress",
-      'picture': "images/products/dress1.jpeg",
+      'name': "Acidity Agents",
+      'picture': "images/Agro_Images/acidifying_agents/WELLNWSS , ultra acid, 100 capsules.jpg",
       'old_price': 100,
       'price': 50
     },
     {
-      'name': "Red Dress",
-      'picture': "images/products/hills1.jpeg",
+      'name': "Acidity Agents",
+      'picture': "images/Agro_Images/acidifying_agents/BASF , ammonium chloride ,1kg powder.jpg",
       'old_price': 100,
       'price': 50
     },
     {
-      'name': "Red Dress",
-      'picture': "images/products/blazer2.jpeg",
+      'name': "Acidity Agents",
+      'picture': "images/Agro_Images/acidifying_agents/AQUA, otirinse , 237ml liquid.jpg",
       'old_price': 100,
       'price': 50
     },
     {
-      'name': "Red Dress",
-      'picture': "images/products/skt2.jpeg",
+      'name': "Fertilizers",
+      'picture': "images/Agro_Images/Fertilizers/ABTEC , vermi compost , 5kg powder.jpg",
       'old_price': 100,
       'price': 50
     },
     {
-      'name': "Red Dress",
-      'picture': "images/products/dress2.jpeg",
+      'name': "pesticides",
+      'picture': "images/Agro_Images/pesticides/EXPERT, pest fix,250ml liquid.jpg",
       'old_price': 100,
       'price': 50
     },
@@ -70,16 +70,18 @@ class Single_prod extends StatelessWidget {
   final prod_price;
 
   Single_prod(
-      {this.prod_name,
+      {
+      this.prod_name,
       this.prod_picture,
       this.prod_old_price,
-      this.prod_price});
+      this.prod_price
+      });
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: Hero(
-          tag: prod_name,
+          tag: new Text("hero 1"),
           child: Material(
             child: InkWell(
               onTap: () => Navigator.of(context).push(new MaterialPageRoute(

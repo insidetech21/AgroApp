@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:agro_app/pages/product_details.dart';
+import 'package:agro_app/main.dart';
+import 'package:agro_app/pages/home.dart';
 
 class ProductDetails extends StatefulWidget {
   final product_details_name;
@@ -23,8 +25,10 @@ class _ProductDetailsState extends State<ProductDetails> {
     return Scaffold(
       appBar: new AppBar(
         elevation: 0.1,
-        backgroundColor: Colors.red,
-        title: Text("Agro App"),
+        backgroundColor: Colors.green,
+        title: InkWell(
+            onTap:(){Navigator.push(context, MaterialPageRoute(builder: (context)=> new HomePage()));},
+            child: Text("Agro App")),
         actions: <Widget>[
           new IconButton(
               icon: Icon(
@@ -32,12 +36,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                 color: Colors.white,
               ),
               onPressed: () {}),
-          new IconButton(
-              icon: Icon(
-                Icons.shopping_cart,
-                color: Colors.white,
-              ),
-              onPressed: () {})
         ],
       ),
       body: ListView(
@@ -187,7 +185,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               Expanded(
                 child: MaterialButton(
                   onPressed: () {},
-                  color: Colors.red,
+                  color: Colors.green,
                   textColor: Colors.white,
                   elevation: 0.2,
                   child: new Text("Buy now"),
@@ -195,7 +193,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
 
               new IconButton(
-                  icon: Icon(Icons.add_shopping_cart, color: Colors.red),
+                  icon: Icon(Icons.add_shopping_cart, color: Colors.greenAccent),
                   onPressed: () {}),
               new IconButton(
                   icon: Icon(Icons.favorite_border, color: Colors.red),
@@ -238,10 +236,127 @@ class _ProductDetailsState extends State<ProductDetails> {
             Padding(padding: EdgeInsets.all(5.0),
             child: new Text("New"),)
           ],
-          ) 
+          ),
 
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new Text("Similar Products",),
+          ),
+          // SIMILAR PRODUCTS SECTION 
+          Container (
+            height: 340.0,
+            child: Similar_products(),
+          )
         ],
       ),
+    );
+  }
+}
+
+class Similar_products extends StatefulWidget {
+  @override
+  _Similar_productsState createState() => _Similar_productsState();
+}
+
+class _Similar_productsState extends State<Similar_products> {
+  var product_list = [
+    {
+      'name': "Acidity Agents",
+      'picture': "images/Agro_Images/acidifying_agents/SEARLESS , sulphur powder,500mg.jpg",
+      'old_price': 120,
+      'price': 85
+    },
+    {
+      'name': "Acidity Agents",
+      'picture': "images/Agro_Images/acidifying_agents/WELLNWSS , ultra acid, 100 capsules.jpg",
+      'old_price': 100,
+      'price': 50
+    },
+    {
+      'name': "Fertilizers",
+      'picture': "images/Agro_Images/Fertilizers/ABTEC , vermi compost , 5kg powder.jpg",
+      'old_price': 100,
+      'price': 50
+    },
+    {
+      'name': "pesticides",
+      'picture': "images/Agro_Images/pesticides/EXPERT, pest fix,250ml liquid.jpg",
+      'old_price': 100,
+      'price': 50
+
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+        itemCount: product_list.length,
+        gridDelegate:
+        new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        itemBuilder: (BuildContext context, int index) {
+          return Smimilar_single_prod(
+            prod_name: product_list[index]['name'],
+            prod_picture: product_list[index]['picture'],
+            prod_old_price: product_list[index]['old_price'],
+            prod_price: product_list[index]['price'],
+          );
+        });
+  }
+}
+
+class Smimilar_single_prod extends StatelessWidget {
+  final prod_name;
+  final prod_picture;
+  final prod_old_price;
+  final prod_price;
+
+  Smimilar_single_prod(
+      {this.prod_name,
+        this.prod_picture,
+        this.prod_old_price,
+        this.prod_price});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Hero(
+          tag: new Text("hero 1"),
+          child: Material(
+            child: InkWell(
+              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                // passing the value of products to product_details page
+                  builder: (context) => new ProductDetails(
+                      product_details_name: prod_name,
+                      product_details_new_price: prod_price,
+                      product_details_old_price: prod_old_price,
+                      product_details_picture: prod_picture))),
+              child: GridTile(
+                  footer: Container(
+                    color: Colors.white,
+                    child: new Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(
+                            prod_name,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16.0),
+                          ),
+                        ),
+                        new Text(
+                          "\₹${prod_price}",
+                          style: TextStyle(
+                              color: Colors.red, fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                  ),
+                  child: Image.asset(
+                    prod_picture,
+                    fit: BoxFit.cover,
+                  )),
+            ),
+          )),
     );
   }
 }
